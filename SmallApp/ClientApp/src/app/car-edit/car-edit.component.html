@@ -1,10 +1,25 @@
-<div>
+<form id="carEditForm">
 	    <h2><span class="badge badge-dark font-weight-bold">Изменение данных об автомобиле</span></h2>
-	    <car-form [(car)]="car"></car-form>
+	<div class="form-group">
+		    <label>Марка <span class="redStar">*</span></label>
+		    <input type="text" [(ngModel)]="car.name" class="form-control" name="name" maxlength="16"
+			placeholder="Марка" required>
+	</div>
+
+	<div class="form-group">
+		    <label>Модель <span class="redStar">*</span></label>
+		    <input type="text" [(ngModel)]="car.model" class="form-control" name="model" maxlength="16"
+			placeholder="Модель" required>
+	</div>
+
+	<div class="form-group">
+		    <label>Цена <span class="redStar">*</span></label>
+		    <input type="number" name="price" [(ngModel)]="car.price" class="form-control" placeholder="Цена" required>
+	</div>
 
 	    <div class="form-group">
 		        <input type="button" value="Сохранить" (click)="save()" class="btn btn-success btn-lg">
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<a routerLink="/" class="btn btn-warning btn-lg" id="backBtn">Назад к списку</a>
 		    </div>
-</div>
+</form>

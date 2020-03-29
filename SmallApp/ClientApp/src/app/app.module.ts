@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CarListComponent } from './car-list/car-list.component';
-import { CarFormComponent } from './car-form/car-form.component';
 import { CarCreateComponent } from './car-create/car-create.component';
 import { CarEditComponent } from './car-edit/car-edit.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -20,7 +19,7 @@ const appRoutes: Routes = [
 
 @NgModule({
     imports: [ReactiveFormsModule, BrowserModule, FormsModule, HttpClientModule, RouterModule.forRoot(appRoutes)],
-    declarations: [AppComponent, CarListComponent, CarCreateComponent, CarEditComponent, CarFormComponent, NotFoundComponent],
+    declarations: [AppComponent, CarListComponent, CarCreateComponent, CarEditComponent, NotFoundComponent],
     providers: [DataService],
     bootstrap: [AppComponent]
 })

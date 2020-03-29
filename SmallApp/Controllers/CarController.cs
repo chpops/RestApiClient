@@ -13,8 +13,13 @@ namespace SmallApp.Controllers
         public CarController(ApplicationContext context)
         {
             db = context;
+
+      // Использую подход Table Per Hierarchy - наследование Entity Framework
+      // Подход Table Per Type не понравился и не понял смысла
+      // Подход Table Per Concrete Type не удалось реализовать т.к. компилятор ругался сначала на DbModelBuilder , после сменил на ModelBuilder 
+      // стал ругаться на дальнейшее использование .Map()
       
-          if ( !db.Cars.Any() )
+      if ( !db.Cars.Any() )
           {
             db.Cars.Add(new Car { Name = "Tesla" , Model = "Model Y" , Price = 16970000 });
             db.Cars.Add(new Car { Name = "BMW" , Model = "X7" , Price = 13990000 });

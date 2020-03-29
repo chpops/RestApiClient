@@ -1,6 +1,5 @@
-<div>
 	    <h2><span class="badge badge-dark font-weight-bold">Добавление нового автомобиля: </span></h2>
-	<form class="just-form" [formGroup]="justForm">
+	<form class="just-form" [formGroup]="justForm" id="carCreateForm">
 		<div class="form-group">
 			    <label>Марка <span class="redStar">*</span></label>
 			    <input type="text" id="name" formControlName="name" [(ngModel)]="car.name" class="form-control"
@@ -24,4 +23,3 @@
 			        <a routerLink="/" class="btn btn-warning btn-lg"> Отмена</a>
 		</div>
 	</form>
-</div>
