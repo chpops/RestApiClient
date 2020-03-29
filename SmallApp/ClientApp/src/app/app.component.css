@@ -1,0 +1,18 @@
+@import url(https://fonts.googleapis.com/css?family=Merriweather:300,900);
+
+.app-footer {
+  padding: 6px;
+  text-align: center;
+  background-color: #252a2e !important;
+  color: rgb(255, 255, 255);
+}
+
+#footerText {
+  font: 16px 'Merriweather', italic;
+  text-shadow: -0 -1px 1px #000000, 0 -1px 1px #000000, -0 1px 1px #000000, 0 1px 1px #000000, -1px -0 1px #000000, 1px -0 1px #000000, -1px 0 1px #000000, 1px 0 1px #000000, -1px -1px 1px #000000, 1px -1px 1px #000000, -1px 1px 1px #000000, 1px 1px 1px #000000, -1px -1px 1px #000000, 1px -1px 1px #000000, -1px 1px 1px #000000, 1px 1px 1px #000000;
+}
+
+.container {
+  padding: 6px;
+  font: 10px 'Merriweather', bold;
+}

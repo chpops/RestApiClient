@@ -1,0 +1,10 @@
+<div>
+	    <h2><span class="badge badge-dark font-weight-bold">Изменение данных об автомобиле</span></h2>
+	    <car-form [(car)]="car"></car-form>
+
+	    <div class="form-group">
+		        <input type="button" value="Сохранить" (click)="save()" class="btn btn-success btn-lg">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a routerLink="/" class="btn btn-warning btn-lg" id="backBtn">Назад к списку</a>
+		    </div>
+</div>

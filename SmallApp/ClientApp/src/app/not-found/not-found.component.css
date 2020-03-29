@@ -1,0 +1,15 @@
+#notFoundText {
+	text-align: center;
+	color: rgb(240, 9, 9);
+	font: 36px 'Merriweather', normal;
+}
+
+#backBtn {
+	position: absolute;
+	top: 25%;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
+	font: 24px 'Merriweather', bolder;
+	text-align: center;
+}

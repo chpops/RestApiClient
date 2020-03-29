@@ -1,0 +1,17 @@
+h2 {
+	text-align: center;
+}
+
+.badge {
+	font: 24px 'Merriweather', italic;
+	background-color: #343a40 !important;
+}
+
+.redStar {
+	color: #ff0000;
+	font-weight: bolder;
+}
+
+label {
+	font: 18px 'Merriweather', normal;
+}

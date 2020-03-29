@@ -1,0 +1,35 @@
+<div class="form-group">
+	    <label>Марка <span class="red">*</span></label>
+	    <input type="text" [(ngModel)]="car.name" #carName="ngModel" class="form-control" name="name" maxlength="24"
+		placeholder="Марка" required>
+
+	<div *ngIf="carName.invalid && (carName.dirty || carName.touched)">
+		<div *ngIf="carName.errors.required">
+			<span class="badge badge-danger">Поле не заполнено</span>
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
+	    <label>Модель <span class="red">*</span></label>
+	    <input type="text" [(ngModel)]="car.model" #carModel="ngModel" class="form-control" name="model" maxlength="20"
+		placeholder="Модель" required>
+
+	<div *ngIf="carModel.invalid && (carModel.dirty || carModel.touched)">
+		<div *ngIf="carModel.errors.required">
+			<span class="badge badge-danger">Поле не заполнено</span>
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
+	    <label>Цена </label>
+	    <input type="number" name="price" [(ngModel)]="car.price" #carPrice="ngModel" class="form-control"
+		placeholder="Цена" required>
+
+	<div *ngIf="carPrice.invalid && (carPrice.dirty || carPrice.touched)">
+		<div *ngIf="carPrice.errors.required">
+			<span class="badge badge-danger">Поле не заполнено</span>
+		</div>
+	</div>
+</div>

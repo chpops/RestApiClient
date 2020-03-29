@@ -1,0 +1,21 @@
+.badge {
+	font: 24px 'Merriweather', italic;
+	background-color: #343a40 !important;
+}
+
+button {
+	font: 16px 'Merriweather', normal;
+}
+
+a {
+	font: 16px 'Merriweather', normal;
+}
+
+#trCar {
+	font: 16px 'Merriweather', normal;
+}
+
+#addBtn {
+	font: 28px 'Merriweather', bolder;
+	margin-bottom: 64px;
+}

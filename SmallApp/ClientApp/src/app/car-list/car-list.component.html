@@ -1,0 +1,28 @@
+<table class="table table-striped">
+        <thead>
+                <tr>
+                        <td><span class="badge badge-dark font-weight-bold">Марка</span></td>
+                        <td><span class="badge badge-dark font-weight-bold">Модель</span></td>
+                        <td><span class="badge badge-dark font-weight-bold">Цена</span></td>
+                        <td></td>
+            <td>
+                <!-- <button (click)="deleteAll()" class="btn btn-danger">Удалить всё</button> -->
+            </td>
+                 
+        </tr>
+           </thead>
+
+        <tbody>
+                <tr *ngFor="let p of cars" id="trCar">
+                        <td>{{p?.name}}</td>
+                        <td>{{p?.model}}</td>
+                        <td>{{p?.price}}</td>
+
+                        <td>
+                                <a [routerLink]="['edit', p.id]" class="btn btn-outline-primary">Изменить</a>
+                                <button (click)="delete(p.id)" class="btn btn-outline-danger">Удалить</button>
+                            </td>
+                    </tr>
+            </tbody>
+</table>
+ <a routerLink="/create" class="btn btn-success btn-lg btn-block" id="addBtn">Добавить</a>
