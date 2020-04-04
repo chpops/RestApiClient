@@ -1,25 +1,36 @@
-	    <h2><span class="badge badge-dark font-weight-bold">Добавление нового автомобиля: </span></h2>
-	<form class="just-form" [formGroup]="justForm" id="carCreateForm">
-		<div class="form-group">
-			    <label>Марка <span class="redStar">*</span></label>
-			    <input type="text" id="name" formControlName="name" [(ngModel)]="car.name" class="form-control"
-				maxlength="16" placeholder="Марка" required>
-		</div>
+<h2><span class="badge badge-dark font-weight-bold">Добавление нового автомобиля</span></h2>
 
-		<div class="form-group">
-			    <label>Модель <span class="redStar">*</span></label>
-			    <input type="text" [(ngModel)]="car.model" class="form-control" id="model" formControlName="model"
-				maxlength="16" placeholder="Модель" required>
+<form [formGroup]="myForm" novalidate>
+	<div class="form-group">
+		    <label>Марка <span class="redStar">*</span></label>
+		    <input type="text" [(ngModel)]="car.name" class="form-control" name="name" formControlName="name"
+			maxlength="12" placeholder="Марка" required>
+		<div class="alert alert-danger" *ngIf="myForm.controls['name'].invalid && myForm.controls['name'].touched">
+			Не указана марка
 		</div>
+	</div>
 
-		<div class="form-group">
-			    <label>Цена <span class="redStar">*</span></label>
-			    <input type="number" id="price" formControlName="price" [(ngModel)]="car.price" class="form-control"
-				placeholder="Цена" required>
+	<div class="form-group">
+		    <label>Модель <span class="redStar">*</span></label>
+		    <input type="text" [(ngModel)]="car.model" class="form-control" name="model" formControlName="model"
+			maxlength="12" placeholder="Модель" required>
+		<div class="alert alert-danger" *ngIf="myForm.controls['model'].invalid && myForm.controls['model'].touched">
+			Не указана модель
 		</div>
+	</div>
 
-		    <div class="form-group">
-			        <input type="button" value="Сохранить" (click)="save()" class="btn btn-success btn-lg">
-			        <a routerLink="/" class="btn btn-warning btn-lg"> Отмена</a>
+	<div class="form-group">
+		    <label>Цена <span class="redStar">*</span></label>
+		    <input type="number" [(ngModel)]="car.price" class="form-control" name="price" formControlName="price"
+			placeholder="Цена" required>
+		<div class="alert alert-danger" *ngIf="myForm.controls['price'].invalid && myForm.controls['price'].touched">
+			Не указана цена
 		</div>
-	</form>
+	</div>
+
+	    <div class="form-group">
+		        <input [disabled]="myForm.invalid" type="button" value="Сохранить" (click)="save(myForm)"
+			class="btn btn-success btn-lg">
+		        <a routerLink="/" class="btn btn-warning btn-lg"> Отмена</a>
+	</div>
+</form>

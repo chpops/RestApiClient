@@ -1,17 +1,16 @@
-<form id="carListForm">
+<form>
     <table class="table table-striped">
             <thead>
                     <tr>
                             <td><span class="badge badge-dark font-weight-bold">Марка</span></td>
                             <td><span class="badge badge-dark font-weight-bold">Модель</span></td>
                             <td><span class="badge badge-dark font-weight-bold">Цена</span></td>
-                            <td></td>
-                <td>
-                    <!-- <button (click)="deleteAll()" class="btn btn-danger">Удалить всё</button> -->
-                </td>
-                     
+                            <td>
+                    <button (click)="deleteAll()" class="btn btn-danger btn-sm" id="deleteAllBtn">Удалить
+                        всё</button>
+                </td> 
             </tr>
-               </thead>
+        </thead>
 
             <tbody>
                     <tr *ngFor="let p of cars" id="trCar">

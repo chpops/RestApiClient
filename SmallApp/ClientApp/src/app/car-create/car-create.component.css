@@ -15,3 +15,15 @@ h2 {
 label {
 	font: 18px 'Merriweather', normal;
 }
+
+input.ng-touched.ng-invalid {
+	border: solid red 4px;
+}
+
+input.ng-touched.ng-valid {
+	border: solid green 2px;
+}
+
+.alert {
+	font-size: 13px;
+}

@@ -19,3 +19,8 @@ a {
 	font: 28px 'Merriweather', bolder;
 	margin-bottom: 64px;
 }
+
+#deleteAllBtn {
+	margin-left: 70%;
+	font: 13px 'Merriweather', normal;
+}

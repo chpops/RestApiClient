@@ -2,7 +2,7 @@ import { Car } from "./../car";
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import { DataService } from "../data.service";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { FormGroup, Validators, FormControl } from "@angular/forms";
 
 @Component({
 	templateUrl: "../car-create/car-create.component.html",
@@ -12,39 +12,41 @@ export class CarCreateComponent {
 	car: Car = new Car();
 	justForm: FormGroup;
 
+	myForm: FormGroup = new FormGroup({
+		"name": new FormControl("", Validators.required),
+		"model": new FormControl("", Validators.required),
+		"price": new FormControl("", Validators.required)
+	});
+
 	constructor(
 		private dataService: DataService,
 		private router: Router,
-		private fb: FormBuilder
+		// private fb: FormBuilder
 	) { }
 
 	ngOnInit() {
-		this.initForm();
+		// this.initForm();
 	}
 
-	// 🙁 Такое ощущение, что валидация не работает! 😠
-	private initForm(): void {
-		this.justForm = this.fb.group({
-			// name: [
-			// 	null,
-			// 	[
-			// 		Validators.required,
-			// 		Validators.pattern(/^[A-z0-9]*$/),
-			// 		Validators.minLength(3)
-			// 	]
-			// ],
-			// model: [null, [Validators.required]],
-			// price: [null, [Validators.required]]
-			name: null,
-			model: null,
-			price: null
-		});
-	}
+	// private initForm(): void {
+	// 	this.justForm = this.fb.group({
+	// 		name: ["",
+	// 			[
+	// 				Validators.required,
+	// 				Validators.pattern(/^[A-z0-9]*$/),
+	// 				Validators.minLength(3)
+	// 			]
+	// 		],
+	// 		model: [null, [Validators.required]],
+	// 		price: [null, [Validators.required]]
+	// 		// name: null,
+	// 		// model: null,
+	// 		// price: null
+	// 	});
+	// }
 
-	// 🚬 По сути всю валидацию можно прописать самому и вынести ее в save, но это по идее будет "костыль" ...
-	// upd: добавил этот "костыль" ... теперь есть хоть что-то ... 🚬
-
-	save() {
+	save(myForm) {
+		console.log(myForm);
 		let name = this.car.name;
 		let model = this.car.model;
 		let price = this.car.price;

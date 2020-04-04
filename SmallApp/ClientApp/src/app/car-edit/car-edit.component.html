@@ -1,25 +1,36 @@
-<form id="carEditForm">
 	    <h2><span class="badge badge-dark font-weight-bold">Изменение данных об автомобиле</span></h2>
-	<div class="form-group">
-		    <label>Марка <span class="redStar">*</span></label>
-		    <input type="text" [(ngModel)]="car.name" class="form-control" name="name" maxlength="16"
-			placeholder="Марка" required>
-	</div>
+	<form [formGroup]="myForm" class="just-form" novalidate>
+		<div class="form-group">
+			    <label>Марка <span class="redStar">*</span></label>
+			    <input type="text" formControlName="name" [(ngModel)]="car.name" class="form-control" name="name"
+				maxlength="16" placeholder="Марка" required>
+			<div class="alert alert-danger" *ngIf="myForm.controls['name'].invalid && myForm.controls['name'].touched">
+				Не указана марка, либо введены некорректные данные
+			</div>
+		</div>
 
-	<div class="form-group">
-		    <label>Модель <span class="redStar">*</span></label>
-		    <input type="text" [(ngModel)]="car.model" class="form-control" name="model" maxlength="16"
-			placeholder="Модель" required>
-	</div>
+		<div class="form-group">
+			    <label>Модель <span class="redStar">*</span></label>
+			    <input type="text" formControlName="model" [(ngModel)]="car.model" class="form-control" name="model"
+				maxlength="16" placeholder="Модель" required>
+			<div class="alert alert-danger" *ngIf="myForm.controls['model'].invalid && myForm.controls['model'].touched">
+				Не указана модель, либо введены некорректные данные
+			</div>
+		</div>
 
-	<div class="form-group">
-		    <label>Цена <span class="redStar">*</span></label>
-		    <input type="number" name="price" [(ngModel)]="car.price" class="form-control" placeholder="Цена" required>
-	</div>
+		<div class="form-group">
+			    <label>Цена <span class="redStar">*</span></label>
+			    <input type="number" formControlName="price" [(ngModel)]="car.price" class="form-control" name="price"
+				placeholder="Цена" required>
+			<div class="alert alert-danger" *ngIf="myForm.controls['price'].invalid && myForm.controls['price'].touched">
+				Не указана цена, либо введены некорректные данные
+			</div>
+		</div>
 
-	    <div class="form-group">
-		        <input type="button" value="Сохранить" (click)="save()" class="btn btn-success btn-lg">
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<a routerLink="/" class="btn btn-warning btn-lg" id="backBtn">Назад к списку</a>
-		    </div>
-</form>
+		    <div class="form-group">
+			        <input [disabled]="myForm.invalid" type="button" value="Сохранить" (click)="save(myForm)"
+				class="btn btn-success btn-lg">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a routerLink="/" class="btn btn-warning btn-lg" id="backBtn">Назад к списку</a>
+		</div>
+	</form>

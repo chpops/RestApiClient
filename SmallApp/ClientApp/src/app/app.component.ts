@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { DatePipe } from '@angular/common';
-import { formatDate } from '@angular/common';
+import { DatePipe, formatDate } from '@angular/common';
 
 @Component({
     selector: 'app',
@@ -8,7 +7,6 @@ import { formatDate } from '@angular/common';
     styleUrls: ["./app.component.css"],
     providers: [DatePipe],
 })
-
 
 export class AppComponent {
     justDate = new Date();
