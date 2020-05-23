@@ -14,30 +14,26 @@ namespace SmallApp.Controllers
         {
             db = context;
 
-      // Использую подход Table Per Hierarchy - наследование Entity Framework
-      // Подход Table Per Type не понравился и не понял смысла
-      // Подход Table Per Concrete Type не удалось реализовать т.к. компилятор ругался сначала на DbModelBuilder , после сменил на ModelBuilder 
-      // стал ругаться на дальнейшее использование .Map()
-      
-      if ( !db.Cars.Any() )
-          {
-            db.Cars.Add(new Car { Name = "Tesla" , Model = "Model Y" , Price = 16970000 });
-            db.Cars.Add(new Car { Name = "BMW" , Model = "X7" , Price = 13990000 });
-            db.Cars.Add(new Car { Name = "Opel" , Model = "Astra" , Price = 4590000 });
+            // Заполняем БД данными, в случае, если она пустая (При инициализации приложения, либо при полном удалении всех записей в БД)
+            if (!db.Cars.Any())
+            {
+                db.Cars.Add(new Car { Name = "Tesla", Model = "Model Y", Price = 16970000 });
+                db.Cars.Add(new Car { Name = "BMW", Model = "X7", Price = 13990000 });
+                db.Cars.Add(new Car { Name = "Opel", Model = "Astra", Price = 4590000 });
 
-            db.Countries.Add(new Country { Name = "Mercedes" , Model = "E-Class" , CountrySupplier = "Italy" , Price = 7990000 });
-            db.Countries.Add(new Country { Name = "ВАЗ" , Model = "2110" , CountrySupplier = "Russia" , Price = 220000 });
-            db.Countries.Add(new Country { Name = "Mercedes" , Model = "AMG S 63" , CountrySupplier = "Germany" , Price = 14900000 });
-       
-            db.Categories.Add(new CarCategory { Name = "Audi" , Model = "A7 " , Price = 4250000 , Category = "Luxe" });
-            db.Categories.Add(new CarCategory { Name = "ВАЗ" , Model = "2109" , Price = 195000 , Category = "Cheap" });
-            db.Categories.Add(new CarCategory { Name = "Mercedes" , Model = "Maybach " , Price = 24950000 , Category = "Business" });
+                db.Countries.Add(new Country { Name = "Mercedes", Model = "E-Class", CountrySupplier = "Italy", Price = 7990000 });
+                db.Countries.Add(new Country { Name = "ВАЗ", Model = "2110", CountrySupplier = "Russia", Price = 220000 });
+                db.Countries.Add(new Country { Name = "Mercedes", Model = "AMG S 63", CountrySupplier = "Germany", Price = 14900000 });
 
-            db.SaveChanges();
-          }
+                db.Categories.Add(new CarCategory { Name = "Audi", Model = "A7 ", Price = 4250000, Category = "Luxe" });
+                db.Categories.Add(new CarCategory { Name = "ВАЗ", Model = "2109", Price = 195000, Category = "Cheap" });
+                db.Categories.Add(new CarCategory { Name = "Mercedes", Model = "Maybach ", Price = 24950000, Category = "Business" });
+
+                db.SaveChanges();
+            }
         }
 
-    [HttpGet]
+        [HttpGet]
         public IEnumerable<Car> Get()
         {
             return db.Cars.ToList();

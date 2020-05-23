@@ -7,8 +7,7 @@ export class DataService {
 
     private url = "/api/cars";
 
-    constructor(private http: HttpClient) {
-    }
+    constructor(private http: HttpClient) {}
 
     getCars() {
         return this.http.get(this.url);

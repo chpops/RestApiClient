@@ -11,11 +11,11 @@ namespace SmallApp.Models
         public int Id { get; set; }
 
         [Required]
-        [StringLength (12, ErrorMessage = "The Car Name value cannot exceed 16 characters. ")]
+        [StringLength (12, ErrorMessage = "The Car Name value cannot exceed 12 characters. ")]
         public string Name { get; set; }
 
         [Required]
-        [StringLength(12, ErrorMessage = "The Car Model value cannot exceed 16 characters. ")]
+        [StringLength(12, ErrorMessage = "The Car Model value cannot exceed 12 characters. ")]
         public string Model { get; set; }
 
         [Range(0, 999999999, ErrorMessage = "The Car Price value cannot exceed 999.999.999. ")]

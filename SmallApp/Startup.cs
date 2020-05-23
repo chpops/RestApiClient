@@ -14,7 +14,7 @@ namespace SmallApp
         private const string CACHE_HEADER_KEY = "Cache-Control";
         private const string CACHE_HEADER_VALUE = "no-cache";
         private const string CONNECTION_STRING = "Server=(localdb)\\mssqllocaldb;Database=productsdb;Trusted_Connection=True;";
-        // private const string CONNECTION_STRING = "Server=localhost\SQLEXPRESS;Database=master;Trusted_Connection=True;";
+        //private const string test = "Data Source=(localdb)\\MSSQLLocalDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
         public void ConfigureServices(IServiceCollection services)
         {

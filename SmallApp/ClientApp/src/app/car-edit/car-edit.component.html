@@ -5,7 +5,7 @@
 			    <input type="text" formControlName="name" [(ngModel)]="car.name" class="form-control" name="name"
 				maxlength="16" placeholder="Марка" required>
 			<div class="alert alert-danger" *ngIf="myForm.controls['name'].invalid && myForm.controls['name'].touched">
-				Не указана марка, либо введены некорректные данные
+				Указана некорректная марка
 			</div>
 		</div>
 
@@ -14,7 +14,7 @@
 			    <input type="text" formControlName="model" [(ngModel)]="car.model" class="form-control" name="model"
 				maxlength="16" placeholder="Модель" required>
 			<div class="alert alert-danger" *ngIf="myForm.controls['model'].invalid && myForm.controls['model'].touched">
-				Не указана модель, либо введены некорректные данные
+				Указана некорректная модель
 			</div>
 		</div>
 
@@ -23,7 +23,7 @@
 			    <input type="number" formControlName="price" [(ngModel)]="car.price" class="form-control" name="price"
 				placeholder="Цена" required>
 			<div class="alert alert-danger" *ngIf="myForm.controls['price'].invalid && myForm.controls['price'].touched">
-				Не указана цена, либо введены некорректные данные
+				Указана некорректная цена
 			</div>
 		</div>
 

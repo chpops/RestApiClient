@@ -14,10 +14,7 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.json",
-            "aot": true,
-            "assets": [
-              "src/styles"
-            ]
+            "aot": true
           },
           "configurations": {
             "production": {

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DataService } from '../data.service';
 import { Car } from '../car';
-import { FormBuilder, FormGroup, Validators, FormControl } from "@angular/forms";
+import { FormGroup, Validators, FormControl } from "@angular/forms";
 
 @Component({
 	templateUrl: '../car-edit/car-edit.component.html',
@@ -16,60 +16,59 @@ export class CarEditComponent implements OnInit {
 	justForm: FormGroup;
 
 	myForm: FormGroup = new FormGroup({
-		"name": new FormControl("", Validators.required),
-		"model": new FormControl("", Validators.required),
-		"price": new FormControl("", Validators.required)
+		"name":  new FormControl("", [Validators.required, Validators.pattern(/[а-яА-ЯёЁa-zA-Z0-9]+$/), Validators.minLength(1), Validators.maxLength(12)] ),
+		"model": new FormControl("", [Validators.required, Validators.pattern(/[а-яА-ЯёЁa-zA-Z0-9]+$/), Validators.minLength(1), Validators.maxLength(12)] ),
+		"price": new FormControl("", [Validators.required, Validators.min(1), Validators.max(999999999)] )
 	});
 
-	constructor(private dataService: DataService, private router: Router, activeRoute: ActivatedRoute, private fb: FormBuilder) {
-		this.id = Number.parseInt(activeRoute.snapshot.params["id"]);
+	constructor(
+		private dataService: DataService,
+		private router: Router,
+		activeRoute: ActivatedRoute
+		) { 
+			this.id = Number.parseInt(activeRoute.snapshot.params["id"]);
 	}
 
 	async ngOnInit() {
-		// this.justForm = this.fb.group({
-		// 	name: [
-		// 		null,
-		// 		[
-		// 			Validators.required,
-		// 			Validators.pattern(/^[A-z0-9]*$/),
-		// 			Validators.minLength(3)
-		// 		]
-		// 	],
-		// 	model: [null, [Validators.required]],
-		// 	price: [null, [Validators.required]]
-		// 	// name: null,
-		// 	// model: null,
-		// 	// price: null
-		// })
-
 		if (this.id) {
 			this.car = await this.dataService.getCar(this.id).toPromise();
-			if (this.car != null) this.loaded = true;
+			if (this.car != null) 
+				this.loaded = true;
+			else
+				console.log("Объект Car = null");
 		}
-		console.log();
+		else{
+			console.log("Невозможно получить параметр Id из activeRoute");
+		}
 	}
 
 	save(myForm) {
-		console.log(myForm);
+		// console.log(myForm);
 		let name = this.car.name;
 		let model = this.car.model;
 		let price = this.car.price;
 
+		// Дополнительная проверка при сохранении на заполненность необходимых параметров
 		if (name && model && price) {
 			this.dataService.updateCar(this.car).subscribe(data => this.router.navigateByUrl("/"));
-			console.log("success");
+			console.log("car change success");
 		}
 		else {
-			if (!name) {
+			if (!name ) {
 				console.log("- Не заполнено поле 'Марка': " + name);
 			}
-
-			if (!model) {
+			else if (!model) {
 				console.log("- Не заполнено поле 'Модель': " + model);
 			}
-
-			if (!price) {
+			else if (!price) {
 				console.log("- Не заполнено поле 'Цена': " + price);
+			}
+			else{
+				console.log("Возникла непредвиденная ошибка при редактировании авто!");
+				console.log("Параметры формы:");
+				console.log("Марка: " + name);
+				console.log("Модель: " + model);
+				console.log("Цена: " + price);
 			}
 		}
 	}

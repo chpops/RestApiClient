@@ -13,17 +13,20 @@ export class CarListComponent implements OnInit {
 	constructor(private dataService: DataService) { }
 
 	ngOnInit() {
-		this.load();
-	}
-
-	async load() {
+		// this.load();
 		this.dataService.getCars().subscribe((data: Car[]) => this.cars = data);
 	}
 
+	// async load() {
+	// 	this.dataService.getCars().subscribe((data: Car[]) => this.cars = data);
+	// }
+
+	
 	delete(id: number) {
-		this.dataService.deleteCar(id).subscribe(data => this.load());
+		this.dataService.deleteCar(id).subscribe(data => this.dataService.getCars().subscribe((data: Car[]) => this.cars = data));
 	}
 
 	deleteAll() {
+		console.log("Delete All Cars Function");
 	}
 }

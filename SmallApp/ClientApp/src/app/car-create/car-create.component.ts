@@ -10,63 +10,43 @@ import { FormGroup, Validators, FormControl } from "@angular/forms";
 })
 export class CarCreateComponent {
 	car: Car = new Car();
-	justForm: FormGroup;
-
 	myForm: FormGroup = new FormGroup({
-		"name": new FormControl("", Validators.required),
-		"model": new FormControl("", Validators.required),
-		"price": new FormControl("", Validators.required)
+		"name":  new FormControl("", [Validators.required, Validators.pattern(/[а-яА-ЯёЁa-zA-Z0-9]+$/), Validators.minLength(1), Validators.maxLength(12)] ),
+		"model": new FormControl("", [Validators.required, Validators.pattern(/[а-яА-ЯёЁa-zA-Z0-9]+$/), Validators.minLength(1), Validators.maxLength(12)] ),
+		"price": new FormControl("", [Validators.required, Validators.min(1), Validators.max(999999999)] )
 	});
 
 	constructor(
 		private dataService: DataService,
 		private router: Router,
-		// private fb: FormBuilder
 	) { }
 
-	ngOnInit() {
-		// this.initForm();
-	}
-
-	// private initForm(): void {
-	// 	this.justForm = this.fb.group({
-	// 		name: ["",
-	// 			[
-	// 				Validators.required,
-	// 				Validators.pattern(/^[A-z0-9]*$/),
-	// 				Validators.minLength(3)
-	// 			]
-	// 		],
-	// 		model: [null, [Validators.required]],
-	// 		price: [null, [Validators.required]]
-	// 		// name: null,
-	// 		// model: null,
-	// 		// price: null
-	// 	});
-	// }
-
 	save(myForm) {
-		console.log(myForm);
+		// console.log(myForm);
 		let name = this.car.name;
 		let model = this.car.model;
 		let price = this.car.price;
 
+		// Дополнительная проверка при сохранении на заполненность необходимых параметров
 		if (name && model && price) {
-			this.dataService
-				.createCar(this.car)
-				.subscribe(data => this.router.navigateByUrl("/"));
-			console.log("success");
+			this.dataService.createCar(this.car).subscribe(data => this.router.navigateByUrl("/"));
+			console.log("create car success!");
 		} else {
 			if (!name) {
 				console.log("- Не заполнено поле 'Марка': " + name);
 			}
-
-			if (!model) {
+			else if (!model) {
 				console.log("- Не заполнено поле 'Модель': " + model);
 			}
-
-			if (!price) {
+			else if (!price) {
 				console.log("- Не заполнено поле 'Цена': " + price);
+			}
+			else{
+				console.log("Возникла непредвиденная ошибка при создании авто!");
+				console.log("Параметры формы:");
+				console.log("Марка: " + name);
+				console.log("Модель: " + model);
+				console.log("Цена: " + price);
 			}
 		}
 	}

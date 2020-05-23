@@ -7,6 +7,7 @@ namespace SmallApp
     {
         public static void Main(string[] args)
         {
+            // Добавляем RabbitMQ
             //var factory = new ConnectionFactory
             //{
             //    HostName = "localhost",
