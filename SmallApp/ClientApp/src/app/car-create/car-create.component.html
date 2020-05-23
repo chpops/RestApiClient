@@ -29,8 +29,9 @@
 	</div>
 
 	    <div class="form-group">
-		        <input [disabled]="myForm.invalid" type="button" value="Сохранить" (click)="save(myForm)"
-			class="btn btn-success btn-lg">
-		        <a routerLink="/" class="btn btn-warning btn-lg"> Отмена</a>
+		        <input [disabled]="myForm.invalid" type="button" value="Сохранить" (click)="save(myForm)" class="btn btn-success btn-lg">
+		<!--         <input type="image" src="../../img/add.jpg" [disabled]="myForm.invalid" (click)="save(myForm)"> -->
+		     	<a routerLink="/" class="btn btn-warning btn-lg"> Отмена</a>
+		<!--      	<input type="image" src="../../img/cancel.jpg"> -->
 	</div>
 </form>

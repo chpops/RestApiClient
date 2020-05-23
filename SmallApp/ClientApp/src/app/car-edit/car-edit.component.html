@@ -28,9 +28,10 @@
 		</div>
 
 		    <div class="form-group">
-			        <input [disabled]="myForm.invalid" type="button" value="Сохранить" (click)="save(myForm)"
-				class="btn btn-success btn-lg">
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<a routerLink="/" class="btn btn-warning btn-lg" id="backBtn">Назад к списку</a>
+				<input [disabled]="myForm.invalid" type="button" value="Сохранить" (click)="save(myForm)" class="btn btn-success btn-lg">
+				<!-- <input [disabled]="myForm.invalid" type="image" src="/src/img/saveCreate.jpg" (click)="save(myForm)"> -->
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a routerLink="/" class="btn btn-warning btn-lg" id="backBtn">Назад к списку</a>
+				<!-- <a routerLink="/" type="image" src='/src/img/back.jpg'>Назад к списку</a> -->
 		</div>
 	</form>

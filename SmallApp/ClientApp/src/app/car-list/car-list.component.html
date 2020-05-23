@@ -19,11 +19,16 @@
                             <td>{{p?.price}}</td>
 
                             <td>
-                                    <a [routerLink]="['edit', p.id]" class="btn btn-outline-primary">Изменить</a>
-                                    <button (click)="delete(p.id)" class="btn btn-outline-danger">Удалить</button>
-                                </td>
+                                <a [routerLink]="['edit', p.id]" class="btn btn-outline-primary">Изменить</a>
+                <!--                 <a [routerLink]="['edit', p.id]" type="image" src="./img/change.jpg">Изменить</a> -->
+                                <button (click)="delete(p.id)" class="btn btn-outline-danger">Удалить</button>
+                <!--                 <button (click)="delete(p.id)"> 
+                                    <input type="image" src="/src/img/delete.jpg"> 
+                                </button> -->
+                            </td>
                         </tr>
                 </tbody>
     </table>
      <a routerLink="/create" class="btn btn-success btn-lg btn-block" id="addBtn">Добавить</a>
+    <!--  <a routerLink="/create" type="image" src="./img/add.jpg">Добавить</a> -->
 </form>
