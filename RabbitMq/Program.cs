@@ -20,7 +20,7 @@ namespace RabbitMq
             {
                 model.QueueDeclare("test-queue", durable: true, exclusive: false, autoDelete: false);
 
-                string stringMessage = "Chpops RabbitMq message check.";
+                string stringMessage = "MilkShake RabbitMq message check.";
                 var body = Encoding.UTF8.GetBytes(stringMessage);
 
                 model.BasicPublish(exchange: string.Empty, routingKey: "test-queue", body: body);
