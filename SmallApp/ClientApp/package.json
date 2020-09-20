@@ -1,8 +1,8 @@
 {
   "version": "1.0.0",
-  "name": "small_chpock_app",
+  "name": "small_shake_app",
   "private": true,
-  "author": "Mr.Chpock <nikichtube@gmail.com>",
+  "author": "MilkShake <nikichtube@gmail.com>",
   "scripts": {
     "ng": "ng",
     "build": "ng build --prod",
@@ -19,8 +19,8 @@
     "@angular/router": "9.0.0",
     "rxjs": "6.5.4",
     "zone.js": "0.10.2",
-    "yargs-parser": ">=13.1.2",
-    "serialize-javascript": ">=3.1.0"
+    "yargs-parser": "18.1.1",
+    "serialize-javascript": "3.1.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "0.900.1",
@@ -28,7 +28,7 @@
     "@angular/compiler-cli": "9.0.0",
     "@types/node": "12.11.1",
     "typescript": "3.7.5",
-    "yargs-parser": ">=13.1.2",
-    "serialize-javascript": ">=3.1.0"
+    "yargs-parser": "18.1.1",
+    "serialize-javascript": "3.1.0"
   }
 }

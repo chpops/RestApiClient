@@ -26,7 +26,7 @@ export class CarListComponent implements OnInit {
 		this.dataService.deleteCar(id).subscribe(data => this.dataService.getCars().subscribe((data: Car[]) => this.cars = data));
 	}
 
-	deleteAll() {
-		console.log("Delete All Cars Function");
+	login() {
+		console.log("Test");
 	}
 }

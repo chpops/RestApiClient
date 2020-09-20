@@ -13,5 +13,6 @@ namespace SmallApp.Models
     public DbSet<Car> Cars { get; set; }
     public DbSet<CarCategory> Categories { get; set; }
     public DbSet<Country> Countries { get; set; }
+    //public DbSet<AccountData> AccountDatas { get; set; }
   }
 }
